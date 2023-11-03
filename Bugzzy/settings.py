@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'coreapi',
     'rest_framework',
     'usuarios',
+    'escuela'
 ]
 
 MIDDLEWARE = [
