@@ -1,5 +1,5 @@
 asgiref==3.7.2
-blinker==1.7.0
+blinker
 click==8.1.7
 colorama==0.4.6
 distlib==0.3.7
