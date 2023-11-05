@@ -1,13 +1,58 @@
 from rest_framework import viewsets
 from .serializer import UsuariosSerializer, PerfilEstudianteSerializer
 from .models import Usuarios,PerfilEstudiante
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 # Create your views here.
 
-class UsuariosViewSet(viewsets.ModelViewSet):
-    queryset=Usuarios.objects.all()
-    serializer_class=UsuariosSerializer
+"""
+    Metodos de usuarios
+"""
 
-
-class PerfilEstudianteViewSet(viewsets.ModelViewSet):
-    queryset=PerfilEstudiante.objects.all()
-    serializer_class=PerfilEstudianteSerializer
+@api_view(['GET', 'POST'])
+def get_usuarios(request):
+    if request.method == 'GET':
+        user = Usuarios.objects.all()
+        user_serializer=UsuariosSerializer(user, many = True)
+        return Response(user_serializer.data)
+    
+    elif request.method == 'POST':
+        user_serializer = UsuariosSerializer(data=request.data)
+        if user_serializer.is_valid():
+            user_serializer.save()
+            return Response(user_serializer.data)
+        return Response(user_serializer.errors)
+    
+@api_view(['GET', 'PUT', 'DELETE'])
+def get_usuario_especifico(request, pk):
+    
+    
+    if request.method == 'GET':
+        user = Usuarios.objects.filter(cedula = pk).first()
+        user_serializer = UsuariosSerializer(user)
+        return Response(user_serializer.data)
+    elif request.method == 'PUT':
+        user = Usuarios.objects.filter(cedula = pk).first()
+        user_serializer = UsuariosSerializer(user, data=request.data)
+        if user_serializer.is_valid():
+            user_serializer.save()
+            return Response(user_serializer.data)
+        return Response(user_serializer.errors)
+    elif request.method == 'DELETE':
+        user = Usuarios.objects.filter(cedula = pk).first()
+        user = user.delete() 
+        return Response('Eliminado')
+        
+        
+        
+    
+"""
+    Metodos de perfil estudiante
+"""
+@api_view(['GET'])
+def get_usuarios_estudiantes(request):
+    if request.method == 'GET':
+        perfil_estudiante = PerfilEstudiante.objects.all()
+        perfil_estudiante_serializer = PerfilEstudianteSerializer(perfil_estudiante, many=True)
+        return Response(perfil_estudiante_serializer.data)
+    
