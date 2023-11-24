@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .serializer import UsuariosSerializer, PerfilEstudianteSerializer
-from .models import Usuarios,PerfilEstudiante
+from .serializer import UsuariosSerializer, PerfilEstudianteSerializer, PerfilProfesorSerializer
+from .models import Usuarios,PerfilEstudiante, PerfilProfesor
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 # Create your views here.
@@ -25,8 +25,7 @@ def get_usuarios(request):
     
 @api_view(['GET', 'PUT', 'DELETE'])
 def get_usuario_especifico(request, pk):
-    
-    
+
     if request.method == 'GET':
         user = Usuarios.objects.filter(cedula = pk).first()
         user_serializer = UsuariosSerializer(user)
@@ -56,3 +55,14 @@ def get_usuarios_estudiantes(request):
         perfil_estudiante_serializer = PerfilEstudianteSerializer(perfil_estudiante, many=True)
         return Response(perfil_estudiante_serializer.data)
     
+
+    
+"""
+    Metodos de perfil profesor
+"""
+@api_view(['GET'])
+def get_usuarios_profesores(request):
+    if request.method == 'GET':
+        perfil_profesor = PerfilProfesor.objects.all()
+        perfil_profesor_serializer = PerfilProfesorSerializer(perfil_profesor, many=True)
+        return Response(perfil_profesor_serializer.data)
