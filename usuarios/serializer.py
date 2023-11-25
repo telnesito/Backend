@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Usuarios, PerfilEstudiante, PerfilProfesor
+from .models import Usuarios, PerfilEstudiante, PerfilProfesor, PerfilCoordinador
 
 class UsuariosSerializer(serializers.ModelSerializer):
     
@@ -17,4 +17,10 @@ class PerfilProfesorSerializer(serializers.ModelSerializer):
     
     class Meta:
         model=PerfilProfesor
-        fiels='__all__'
+        fields='__all__'
+
+class PerfilCoordinadorSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        mode=PerfilCoordinador
+        fields='__all__'

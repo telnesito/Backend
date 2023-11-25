@@ -42,3 +42,12 @@ class PerfilProfesor (models.Model):
     
     def __str__(self):
         return self.cedulaProfesor
+    
+class PerfilCoordinador (models.Model):
+    idPerfilCoordinador = models.AutoField(primary_key=True)
+    cedulaCoordinador = models.OneToOneField(Usuarios,  on_delete=models.CASCADE)
+    experienciaCoordinador = models.CharField(max_length=244)
+    materiaCoordinador = models.CharField(max_length=244)
+    fraseCoordinador = models.CharField(max_length=244)
+    sobreCoordinador = models.CharField(max_length=244)
+    
