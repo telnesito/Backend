@@ -24,7 +24,7 @@ class Usuarios(models.Model):
         return self.correo_electronico
     
 class PerfilEstudiante (models.Model):
-    idPerfilEstudiante = models.CharField(primary_key=True)
+    idPerfilEstudiante = models.AutoField(primary_key=True)
     cedulaEstudiante = models.OneToOneField(Usuarios, to_field='cedula', on_delete=models.CASCADE,)
     semestreEstudiante = models.CharField(max_length=100)
     escuelaEstudiante = models.ForeignKey(Escuela, on_delete=models.CASCADE)
