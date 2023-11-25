@@ -8,4 +8,6 @@ class Comunidades(models.Model):
   nombreComunidad = models.CharField(max_length=144)
   descripcionComunidad = models.TextField()
   fechaCreada = models.DateTimeField(auto_created=True)
-  
+
+  def __str__(self):
+    return self.nombreComunidad
