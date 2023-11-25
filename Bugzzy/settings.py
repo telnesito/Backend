@@ -89,9 +89,7 @@ DATABASES = {
         'PASSWORD': '27728122',
         'HOST': 'localhost',  # Cambia esto si tu base de datos se encuentra en otro servidor
         'PORT': '5432',       # Puerto por defecto de PostgreSQL
-        'OPTIONS': {
-            'client_encoding': 'UTF8',  # Asegúrate de tener esto configurado
-        },
+       
     }
 }
 
