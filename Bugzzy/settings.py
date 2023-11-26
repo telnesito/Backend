@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'usuarios',
     'escuela',
-    'comunidades'
+    'comunidades',
+    'publicacion'
 ]
 
 MIDDLEWARE = [

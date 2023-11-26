@@ -63,13 +63,7 @@ def get_usuarios_estudiantes(request):
         return Response(perfil_estudiante_serializer.errors)
 
      
-    # elif request.method == 'POST':
-    #     user_serializer = UsuariosSerializer(data=request.data)
-    #     if user_serializer.is_valid():
-    #         user_serializer.save()
-    #         return Response(user_serializer.data)
-    #     return Response(user_serializer.errors)
-    
+
 @api_view(['GET', 'PUT', 'DELETE'])
 def estudianteEspecifico(request, pk):
 
@@ -85,27 +79,6 @@ def estudianteEspecifico(request, pk):
             estudiante_serializer.save()
             return Response(estudiante_serializer.data)
         return Response(estudiante_serializer.errors)
-
-# @api_view(['GET', 'PUT', 'DELETE'])
-# def get_usuario_especifico(request, pk):
-
-#     if request.method == 'GET':
-#         user = Usuarios.objects.filter(cedula = pk).first()
-#         user_serializer = UsuariosSerializer(user)
-#         return Response(user_serializer.data)
-#     elif request.method == 'PUT':
-#         user = Usuarios.objects.filter(cedula = pk).first()
-#         user_serializer = UsuariosSerializer(user, data=request.data)
-#         if user_serializer.is_valid():
-#             user_serializer.save()
-#             return Response(user_serializer.data)
-#         return Response(user_serializer.errors)
-#     elif request.method == 'DELETE':
-#         user = Usuarios.objects.filter(cedula = pk).first()
-#         user = user.delete() 
-#         return Response('Eliminado')
-
-    
 """
     Metodos de perfil profesor
 """
