@@ -14,11 +14,10 @@ from escuela.models import Escuela
 class Usuarios(models.Model):
     cedula = models.CharField(max_length=10, primary_key=True, unique=True)
     correo_electronico = models.EmailField(max_length=254)
-    nombre = models.CharField(max_length=244)
-    apellido = models.CharField(max_length=244)
     usuario = models.CharField(max_length=244)
     rol = models.CharField(max_length=100)
-    foto = models.ImageField()
+    clave = models.CharField(max_length=20, default='test')
+    
     
     def __str__(self):
         return self.correo_electronico
