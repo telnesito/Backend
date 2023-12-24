@@ -144,4 +144,4 @@ REST_FRAMEWORK = {
 }
 
 # Cors authorization
-CORS_ALLOWED_ORIGINS = ['https://localhost:8000']
+CORS_ALLOWED_ORIGINS = ['https://localhost:8000', 'http://localhost:5173']
