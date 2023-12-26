@@ -9,6 +9,7 @@ class Publicacion(models.Model):
   descripcionPublicacion = models.TextField()
   tipoPublicacion = models.CharField(max_length=100)
   fechaPublicacion = models.DateTimeField(auto_created=True)
+  miniatura = models.FileField(upload_to='miniatura/')
 
   def __str__(self):
     return self.tituloPublicacion
@@ -17,8 +18,9 @@ class Publicacion(models.Model):
 class capitulosPublicacion(models.Model):
   idVideoPublicacion = models.AutoField(primary_key=True)
   idPublicacion = models.ForeignKey(Publicacion, to_field='idPublicacion', on_delete=models.CASCADE)
-  video_url = models.FileField(upload_to='capitulos/')
+  video_url = models.FileField(upload_to='videos/')
   tituloCapitulo = models.CharField(max_length=100)
   descripcionCapitulo = models.CharField(max_length=100)
+  miniatura = models.FileField(upload_to='videos/miniatura/')
 
 
