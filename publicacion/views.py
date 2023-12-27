@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .serializer import PublicacionSerializer, VideosPublicacionSerializer
-from .models import Publicacion, capitulosPublicacion
+from .serializer import PublicacionSerializer, VideosPublicacionSerializer, ComentariosPublicacionSerializer
+from .models import Publicacion, capitulosPublicacion, Comentarios
 
 # Create your views here.
 
@@ -11,3 +11,7 @@ class PublicacionViewSet(viewsets.ModelViewSet):
 class VideosPublicacionViewSet(viewsets.ModelViewSet):
   queryset = capitulosPublicacion.objects.all()
   serializer_class = VideosPublicacionSerializer
+
+class ComentariosViewSet(viewsets.ModelViewSet):
+  queryset = Comentarios.objects.all()
+  serializer_class = ComentariosPublicacionSerializer

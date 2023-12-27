@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Publicacion, capitulosPublicacion
+from .models import Publicacion, capitulosPublicacion, Comentarios
 
 class PublicacionSerializer(serializers.ModelSerializer):
   class Meta:
@@ -10,4 +10,9 @@ class PublicacionSerializer(serializers.ModelSerializer):
 class VideosPublicacionSerializer(serializers.ModelSerializer):
   class Meta:
     model = capitulosPublicacion
+    fields = '__all__'
+
+class ComentariosPublicacionSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Comentarios
     fields = '__all__'

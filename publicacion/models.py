@@ -24,3 +24,8 @@ class capitulosPublicacion(models.Model):
   miniatura = models.FileField(upload_to='videos/miniatura/')
 
 
+class Comentarios(models.Model):
+  idComentarioPublicacion = models.AutoField(primary_key=True)
+  idCapituloPublicacion = models.ForeignKey(capitulosPublicacion, to_field='idVideoPublicacion', on_delete=models.CASCADE)
+  cedulaComentarista = models.ForeignKey(Usuarios, to_field='cedula', on_delete=models.CASCADE)
+  comentario = models.CharField(max_length=366)
