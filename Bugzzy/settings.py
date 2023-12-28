@@ -86,11 +86,11 @@ WSGI_APPLICATION = 'Bugzzy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bugzzy',
+        'NAME': 'bugzzy-bbdd',
         'USER': 'postgres',
         'PASSWORD': '27728122',
         'HOST': 'localhost',  # Cambia esto si tu base de datos se encuentra en otro servidor
-        'PORT': '5432',       # Puerto por defecto de PostgreSQL
+        'PORT': '5432',       # Pu  erto por defecto de PostgreSQL
        
     }
 }
