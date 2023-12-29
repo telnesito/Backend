@@ -9,7 +9,7 @@ class Publicacion(models.Model):
   descripcionPublicacion = models.TextField()
   tipoPublicacion = models.CharField(max_length=100)
   fechaPublicacion = models.DateTimeField(auto_created=True)
-  miniatura = models.FileField(upload_to='miniatura/')
+  miniatura = models.ImageField(upload_to='miniatura/')
 
   def __str__(self):
     return self.tituloPublicacion
