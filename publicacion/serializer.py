@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Publicacion, capitulosPublicacion, Comentarios
+from .models import Publicacion, capitulosPublicacion, Comentarios, cursosIniciados
 
 
 
@@ -18,4 +18,9 @@ class VideosPublicacionSerializer(serializers.ModelSerializer):
 class ComentariosPublicacionSerializer(serializers.ModelSerializer):
   class Meta:
     model = Comentarios
+    fields = '__all__'
+    
+class CursosIniciadosSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = cursosIniciados
     fields = '__all__'

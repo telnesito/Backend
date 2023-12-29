@@ -29,3 +29,9 @@ class Comentarios(models.Model):
   idCapituloPublicacion = models.ForeignKey(capitulosPublicacion, to_field='idVideoPublicacion', on_delete=models.CASCADE)
   cedulaComentarista = models.ForeignKey(Usuarios, to_field='cedula', on_delete=models.CASCADE)
   comentario = models.CharField(max_length=366)
+  
+class cursosIniciados(models.Model):
+  idCursoIniciado = models.AutoField(primary_key=True)
+  idPublicacion = models.ForeignKey(Publicacion, to_field='idPublicacion', on_delete=models.CASCADE)
+  cedulaEstudiante = models.ForeignKey(Usuarios, to_field='cedula', on_delete=models.CASCADE)
+  estado = models.BooleanField()

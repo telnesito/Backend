@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .serializer import PublicacionSerializer, VideosPublicacionSerializer, ComentariosPublicacionSerializer
-from .models import Publicacion, capitulosPublicacion, Comentarios
+from .serializer import PublicacionSerializer, VideosPublicacionSerializer, ComentariosPublicacionSerializer, CursosIniciadosSerializer
+from .models import Publicacion, capitulosPublicacion, Comentarios, cursosIniciados
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from usuarios.models import Usuarios
@@ -46,3 +46,7 @@ class VideosPublicacionViewSet(viewsets.ModelViewSet):
 class ComentariosViewSet(viewsets.ModelViewSet):
   queryset = Comentarios.objects.all()
   serializer_class = ComentariosPublicacionSerializer
+  
+class CursosIniciadosViewSet(viewsets.ModelViewSet):
+  queryset = cursosIniciados.objects.all()
+  serializer_class = CursosIniciadosSerializer
